@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>MovieInfo</title>
+
+  <!-- Bootswatch Cyborg Theme -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cyborg/bootstrap.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">MovieInfo</a>
+    </div>
+  </nav>
+
+  <!-- Search Section -->
+  <div class="container mt-5">
+    <div class="p-5 mb-4 bg-secondary rounded-3 text-light">
+      <div class="container-fluid py-3">
+        <h2 class="text-center mb-4">Search For Any Movie</h2>
+
+        <form id="searchForm">
+          <input
+            type="text"
+            class="form-control form-control-lg"
+            id="searchText"
+            placeholder="Search Movies..."
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Movies Container -->
+  <div class="container">
+    <div id="movies" class="row g-4"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <!-- <script src="main.js"></script> -->
+  <script src="script.js" type="module"></script>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Movie Info</title>
+
+  <!-- Bootstrap -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/cyborg/bootstrap.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+
+      <a
+        href="index.html"
+        class="navbar-brand"
+      >
+        MovieInfo
+      </a>
+
+    </div>
+  </nav>
+
+
+  <!-- Movie Details Container -->
+  <div class="container mt-5">
+
+    <div id="movie"></div>
+
+  </div>
+
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Movie Details Script -->
+  <script type="module">
+
+    import { movies } from './movies_data.js';
+
+    // ======================================
+    // GET MOVIE
+    // ======================================
+
+    function getMovie() {
+
+      const movieId = sessionStorage.getItem('movieId');
+
+      // Find movie
+      const movie = movies.find(
+        (m) => m.id == movieId
+      );
+
+      // Movie not found
+      if (!movie) {
+
+        $('#movie').html(`
+          <div class="alert alert-danger">
+            Movie not found
+          </div>
+        `);
+
+        return;
+      }
+
+      // Render movie details
+      const output = `
+
+        <div class="row g-5">
+
+          <div class="col-md-4">
+
+            <img
+              src="${movie.poster}"
+              alt="${movie.title}"
+              class="img-fluid rounded shadow"
+            >
+
+          </div>
+
+          <div class="col-md-8">
+
+            <h1 class="mb-3">
+              ${movie.title}
+            </h1>
+
+            <ul class="list-group mb-4">
+
+              <li class="list-group-item">
+                <strong>Year:</strong>
+                ${movie.year}
+              </li>
+
+              <li class="list-group-item">
+                <strong>Genre:</strong>
+                ${movie.genre}
+              </li>
+
+              <li class="list-group-item">
+                <strong>IMDb Rating:</strong>
+                ⭐ ${movie.rating}
+              </li>
+
+              <li class="list-group-item">
+                <strong>Director:</strong>
+                ${movie.director}
+              </li>
+
+              <li class="list-group-item">
+                <strong>Actors:</strong>
+                ${movie.actors}
+              </li>
+
+            </ul>
+
+            <h3>Plot</h3>
+
+            <p class="lead">
+              ${movie.plot}
+            </p>
+
+            <a
+              href="index.html"
+              class="btn btn-secondary mt-3"
+            >
+              ← Go Back
+            </a>
+
+          </div>
+
+        </div>
+
+      `;
+
+      $('#movie').html(output);
+    }
+
+    // Load movie on page load
+    $(document).ready(() => {
+      getMovie();
+    });
+
+  </script>
+
+</body>
+
+</html>

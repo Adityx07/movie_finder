@@ -1,0 +1,60 @@
+/* #movies img, #movie img{
+  width:100%;
+}
+
+@media(min-width:960px){
+  #movies .col-md-3 .well{
+    height: 390px;
+  }
+
+  #movies .col-md-3 img{
+    height:240px;
+  }
+} */
+
+
+
+/* Movie cards and movie details images */
+
+#movies img,
+#movie img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Movie card styling */
+
+#movies .card {
+  height: 100%;
+  transition: transform 0.2s ease;
+}
+
+#movies .card:hover {
+  transform: scale(1.03);
+}
+
+/* Poster image height */
+
+#movies .card img {
+  height: 400px;
+  object-fit: cover;
+}
+
+/* Responsive adjustments */
+
+@media (max-width: 768px) {
+
+  #movies .card img {
+    height: 350px;
+  }
+
+}
+
+@media (max-width: 576px) {
+
+  #movies .card img {
+    height: 300px;
+  }
+
+}
